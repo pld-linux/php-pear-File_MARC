@@ -6,17 +6,17 @@
 Summary:	%{_pearname} - Parse, modify, and create MARC records
 Summary(pl.UTF-8):	%{_pearname} - parsowanie, modyfikacja oraz tworzenie rekordów MARC
 Name:		php-pear-%{_pearname}
-Version:	0.2.3
+Version:	0.6.1
 Release:	1
 License:	GNU Lesser General Public License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	61212aa3c481990e93f3075eef729477
+# Source0-md5:	f74c4b722fa5828787dce4821f16d032
 URL:		http://pear.php.net/package/File_MARC/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
-Requires:	php-pear-PEAR >= 1.4.0
+Requires:	php-pear-PEAR-core >= 1:1.4.0
 Requires:	php-pear-Structures_LinkedList
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,9 +55,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -67,6 +67,9 @@ Testy dla PEAR::%{_pearname}.
 
 %prep
 %pear_package_setup
+
+mv docs/File_MARC/examples .
+mv docs/%{_pearname}/{CHANGELOG,LICENSE} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -78,12 +81,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc install.log docs/File_MARC/{examples/example.mrc,examples/marc_yaz.php,examples/read.php,examples/subfields.php,CHANGELOG,LICENSE}
+%doc CHANGELOG
+%doc install.log
 %{php_pear_dir}/.registry/*.reg
-%{php_pear_dir}/File/MARC
 %{php_pear_dir}/File/MARC.php
-%{php_pear_dir}/File/MARCFLAT.php
+%{php_pear_dir}/File/MARCBASE.php
 %{php_pear_dir}/File/MARCXML.php
+%{php_pear_dir}/File/MARC
 
 %files tests
 %defattr(644,root,root,755)
