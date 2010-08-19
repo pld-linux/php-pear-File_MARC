@@ -76,6 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -88,6 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %{php_pear_dir}/File/MARCBASE.php
 %{php_pear_dir}/File/MARCXML.php
 %{php_pear_dir}/File/MARC
+
+%{_examplesdir}/%{name}-%{version}
 
 %files tests
 %defattr(644,root,root,755)
