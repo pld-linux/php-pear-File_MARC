@@ -6,12 +6,12 @@
 Summary:	%{_pearname} - Parse, modify, and create MARC records
 Summary(pl.UTF-8):	%{_pearname} - parsowanie, modyfikacja oraz tworzenie rekordów MARC
 Name:		php-pear-%{_pearname}
-Version:	1.1.2
+Version:	1.3.0
 Release:	1
 License:	GNU Lesser General Public License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	b2e6ea2e4c8c0973ce65d4e43eed5478
+# Source0-md5:	b4b8e183d83977641702408c4e2bb056
 URL:		http://pear.php.net/package/File_MARC/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
